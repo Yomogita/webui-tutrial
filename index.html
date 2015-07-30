@@ -32,8 +32,31 @@
 
 </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+$(function(){
+    $('#button').click(function(){
+        $.ajax({
+            url: 'http://user-domain/index.php',
+            type: 'post',
+            data: {
+                text: $('#text').val()
+            },
+            timeout: 10000,
+            dataType: 'text'
+        })
+        .done(function( data ) {
+        })
+        .fail(function( data ) {
+        })
+        .always(function( data ) {
+        });
+    });
+});
+</script>
+<input type="text" id="text" name="text" value="" />
+<input type="button" id="button" value="送信" />
 
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+
